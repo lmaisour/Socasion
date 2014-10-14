@@ -6,10 +6,16 @@ gem 'rails', '4.1.5'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'bcrypt', '3.1.7'
+#adding user images 
+gem "paperclip", "~> 4.2"
 gem 'omniauth'
-gem 'omniauth-facebook'
+# Use bootstrap for styling
+gem 'bootstrap-sass', '~> 3.2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+
+gem 'omniauth-facebook'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
