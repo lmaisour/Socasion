@@ -23,7 +23,11 @@
       <br>
       <%= f.password_field :password_confirmation %>
       <br>
+      <%= f.label :picture %>
+      <%= f.file_field :avatar %>
+      <br>
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+
     <% end %>
   </div>
 </div>
