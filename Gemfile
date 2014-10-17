@@ -13,7 +13,7 @@ gem 'omniauth'
 gem 'bootstrap-sass', '~> 3.2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
-
+# Use to authenticate facebook users
 gem 'omniauth-facebook'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -37,6 +37,7 @@ group :development, :test do
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
   gem 'rspec-rails', '2.13.1'
+  gem 'factory_girl_rails', '4.2.0'
 end
 
 # Use ActiveModel has_secure_password

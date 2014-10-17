@@ -1,6 +1,27 @@
 Rails.application.routes.draw do
 
+  root 'users#new'
+
+  get 'sessions/new'
+
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  
+  #routes for sessions
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+  #routes for sessions
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+
+   #routes for facebook authentication
+  # get 'auth/:provider/callback', to: 'sessions#create'
+  # get 'logout', to: 'sessions#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
