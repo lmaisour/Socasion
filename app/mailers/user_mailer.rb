@@ -17,7 +17,8 @@ class UserMailer < ActionMailer::Base
   #   en.user_mailer.password_reset.subject
   #
   def password_reset
-    @user = user
-    mail to: user.email, subject: "Password reset"
+    user = User.first
+    user.reset_token = User.new_token
+    UserMailer.password_reset(user)
   end
 end

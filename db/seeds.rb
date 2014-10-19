@@ -6,21 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create!(name:  "Levani Maisouradze",
-             email: "lmaisour@gmail.com",
+             email: "lmaisour4214@gmail.com",
              password:              "doberman",
              password_confirmation: "doberman",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
 
-99.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now)
-end
+#dummy seed data with faker gem to create 99 profiles
+
+# 99.times do |n|
+#   name  = Faker::Name.name
+#   email = "example-#{n+1}@railstutorial.org"
+#   password = "password"
+#   User.create!(name:  name,
+#                email: email,
+#                password:              password,
+#                password_confirmation: password,
+#                activated: true,
+#                activated_at: Time.zone.now)
+# end
