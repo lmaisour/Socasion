@@ -24,6 +24,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    flash[:success] = "Event Deleted"
+    redirect_to request.referrer || root_url
+  end
+
 
   private
   
