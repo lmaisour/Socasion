@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'events/new'
+
+  get 'events/index'
+
+  get 'events/show'
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -11,6 +17,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :users
+  resources :events
   resources :sessions, only: [:new, :create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]

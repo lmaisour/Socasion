@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@event) do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, required: :true, title: "Title of Event" %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description, required: :true %>
+
+      <%= f.label :when %>
+      <%= f.date_field :when, required: :true %>
+
+      <%= f.label :location, "Location" %>
+      <br>
+      <%= f.text_field :location, required: :true %>
+      <br>
+   
+      <%= f.submit class: "btn btn-large btn-primary" %>
+
+    <% end %>
+  </div>
+</div>

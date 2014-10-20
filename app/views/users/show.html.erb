@@ -4,5 +4,7 @@
 <br>
 <%= image_tag @user.avatar.url(:medium) %>
 
-
-<% provide(:title, @user.name) %>
+<p>
+  <strong>Events Joined:</strong>
+  <%= @user.events.map {|c| c.title}.join(', ') %>
+</p>

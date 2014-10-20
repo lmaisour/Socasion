@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
+    @events = Event.all
   end
 
   def show
@@ -57,7 +58,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-  	params.require(:user).permit(:name,:email,:password,:password_confirmation,:avatar)
+  	params.require(:user).permit(:name,:email,:password,:password_confirmation,:avatar,:kid_ids => [])
   end
 
   def correct_user
