@@ -1,0 +1,6 @@
+<li id="event">
+  <span class="user"><%= link_to event.title, event %></span>
+  <span class="timestamp">
+    Created <%= time_ago_in_words(event.created_at) %> ago.
+  </span>
+</li>

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :logged_in_user
   
   def new
   	@event = Event.new
@@ -14,19 +15,20 @@ class EventsController < ApplicationController
   end
 
   def create
-  	@event = Event.new(event_params)
-  	if @event.save
-  		redirect_to root_url
-  	else
-  		render 'new'
-  	end
+   @event = current_user.events.create(event_params)
+    if @event.save
+      flash[:success] = "Event created!"
+      redirect_to root_url
+    else
+      render new
+    end
   end
 
 
   private
   
   def event_params
-  	params.require(:event).permit(:title,:description,:date,:location,:candy_ids => [])
+  	params.require(:event).permit(:title,:description,:date,:location,:user_ids => [])
   end
   
 end

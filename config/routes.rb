@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/home'
+
+  get 'static_pages/contact'
+
   get 'events/new'
 
   get 'events/index'
@@ -12,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'account_activations/edit'
 
-  root 'users#new'
+  root 'static_pages#home'
 
   get 'sessions/new'
 

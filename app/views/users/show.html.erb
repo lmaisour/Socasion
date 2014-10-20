@@ -2,9 +2,16 @@
 <br>
 <%= @user.name %>, <%= @user.email %>
 <br>
-<%= image_tag @user.avatar.url(:medium) %>
 
-<p>
-  <strong>Events Joined:</strong>
-  <%= @user.events.map {|c| c.title}.join(', ') %>
-</p>
+<%= image_tag @user.avatar.url(:medium) %>
+<div class="row">
+	<div class="col-md-8">
+		<% if @user.events.any? %>
+		<h3>Created <%= @user.events.count %> event(s)</h3>
+		<ol class="events">
+			<%= render @events %>
+		</ol>
+		<%= will_paginate @events %>
+		<% end %>
+	</div>
+</div>

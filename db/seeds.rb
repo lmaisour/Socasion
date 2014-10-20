@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create!(name:  "Levani Maisouradze",
-             email: "lmaisour4214@gmail.com",
+             email: "lmaisour@gmail.com",
              password:              "doberman",
              password_confirmation: "doberman",
              admin: true,
@@ -15,14 +15,34 @@ User.create!(name:  "Levani Maisouradze",
 
 #dummy seed data with faker gem to create 99 profiles
 
-# 99.times do |n|
-#   name  = Faker::Name.name
-#   email = "example-#{n+1}@railstutorial.org"
-#   password = "password"
-#   User.create!(name:  name,
-#                email: email,
-#                password:              password,
-#                password_confirmation: password,
-#                activated: true,
-#                activated_at: Time.zone.now)
-# end
+15.times do |n|
+  name  = Faker::Name.name
+  image = Faker::Avatar.image
+  email = "user#{n+1}@socasion.com"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password,
+               avatar_file_name: image,
+               activated: true,
+               activated_at: Time.zone.now,
+               admin: false,
+               activated: true,
+               )
+end
+
+users = User.all
+6.times do
+  title = Faker::Lorem.sentence(word_count=4)
+  description = Faker::Company.catch_phrase
+  whenz = Faker::Time.between(4.weeks.ago, Time.now, :all)
+  location = Faker::Address.street_address	
+  users.each do |x|
+  	x.events.create!(title: title, 
+  					 description: description,
+  					 whenz: whenz,
+  					 location: location
+  					)
+  end
+end
