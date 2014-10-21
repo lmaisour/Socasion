@@ -141,11 +141,6 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -243,3 +238,24 @@ aside {
     margin: 1px 1px;
   }
 }
+
+
+body.fullscreen-image-background {
+  background-image: url('http://i.imgur.com/P5kCJvn.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+@media screen and (min-width: 1025px) {
+  body.fullscreen-image-background {
+    background-attachment: fixed;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Dosis", sans-serif;
+  font-weight: 300;
+  color: #646464;
+  margin-top: 0;
+}
+

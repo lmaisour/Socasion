@@ -13,6 +13,7 @@ gem 'omniauth'
 gem 'bootstrap-sass', '~> 3.2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+
 # Use to authenticate facebook users
 gem 'omniauth-facebook'
 # Use to paginate results for users & events
@@ -44,6 +45,8 @@ group :development, :test do
   gem 'spring',      '1.1.3'
   gem 'rspec-rails', '2.13.1'
   gem 'factory_girl_rails', '4.2.0'
+  # Use to decypher rails errors easier
+  gem 'better_errors'
 end
 
 # Use ActiveModel has_secure_password

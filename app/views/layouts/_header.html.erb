@@ -1,7 +1,42 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-    <%= link_to "sample app", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav pull-right">
+<head>
+<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,700' rel='stylesheet' type='text/css'>
+
+  <!-- IE 9 Fallback-->
+  <!--[if IE 9]>
+    <link href="assets/css/ie.css" rel="stylesheet">
+  <![endif]-->
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements and IE Fallback-->
+  <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="assets/ico/favicon.png">
+</head>
+
+
+<!-- NAVBAR -->
+  <div class="navbar navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+          <span class="sr-only">Menu</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <img src="assets/img/loop-logo-white.png" alt="Loop Logo" />
+        </a>
+      </div>
+      <nav class="navbar-collapse collapse" id="main-nav" role="navigation">
+        <ul class="nav navbar-nav pull-right">
         <li><%= link_to "Home", root_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Users", users_path %></li>
@@ -22,5 +57,7 @@
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
-    </nav>
-</header>
+      </nav>
+    </div>
+  </div>
+  <!-- END NAVBAR -->
