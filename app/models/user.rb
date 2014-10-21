@@ -14,7 +14,19 @@ class User < ActiveRecord::Base
 
   has_many :attendees
   has_many :events, through: :attendees, dependent: :destroy
+
+  has_many :friendships
+  has_many :passive_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+
+  has_many :active_friends, -> { where(friendships: { approved: true}) }, :through => :friendships, :source => :friend
+  has_many :passive_friends, -> { where(friendships: { approved: true}) }, :through => :passive_friendships, :source => :user
+  has_many :pending_friends, -> { where(friendships: { approved: false}) }, :through => :friendships, :source => :friend
+  has_many :requested_friendships, -> { where(friendships: { approved: false}) }, :through => :passive_friendships, :source => :user
   
+  def friends
+      active_friends | passive_friends
+  end
+
   # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'friendships/create'
+
+  get 'friendships/destroy'
+
+  get 'friendships/update'
+
   get 'static_pages/home'
 
   get 'static_pages/contact'
@@ -20,6 +26,7 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
+  resources :friendships
   resources :users
   resources :events
   resources :sessions, only: [:new, :create, :destroy]
