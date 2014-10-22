@@ -1,6 +1,19 @@
 <h1><%= @event.title %></h1>
 
-<p>
-  <strong>Users That Attended:</strong>
-  <%= @event.users.map {|c| c.name}.join(', ') %>
+<p><strong>People who are attending: </strong>
+	<ul>
+		<% for attendee in @event.users %>
+		<% if attendee.id == current_user.id %>
+		<li><strong><%= attendee.name %></strong>
+			<%= link_to 'Withdraw From Event', withdraw_event_path(@event.id), :method => :post, :class => 'btn btn-danger' %>
+		</li>
+		<% else %>
+		<li><%= link_to attendee.name, user_path %></li>
+		<% end %>
+		<div class="row"><%= image_tag attendee.avatar.url(:medium) %></div>
+		<% end %>   
+	</ul>
 </p>
+
+
+<%= link_to 'Attend Event', attend_event_path(@event.id), :method => :post, :class => 'btn btn-primary' %> 

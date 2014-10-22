@@ -28,7 +28,14 @@ Rails.application.routes.draw do
 
   resources :friendships
   resources :users
-  resources :events
+
+  resources :events do
+    member do
+      post :attend
+      post :withdraw
+    end
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
