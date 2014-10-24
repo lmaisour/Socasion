@@ -10,6 +10,7 @@
 <h2> Creator Of Event <h2>
 	<%= @event.users.first.name %><br>
 	<%= image_tag @event.users.first.avatar.url(:medium) %><br>
+	<%= link_to 'Delete Event', withdraw_event_path(@event.id), :method => :post, :class => 'btn btn-danger' %>
 	
 
 <h3> People Who Are Attending </h3>
@@ -17,6 +18,7 @@
 		<% for attendee in @event.users %>
 		<% if attendee.id != @event.users.first.id %>
 			<li> <%= link_to attendee.name %> </li>
+			
 			<% end %>
 		
 		</ul>
@@ -24,8 +26,9 @@
 <% end %>
 
 <h3> Join This Event <h3>
-<% if current_user.id != attendee.id %>
-	<
+<% unless current_user.id == attendee.id %>
+	 <%= link_to 'Attend this Event', attend_event_path(@event.id), :method => :post, :class => 'btn btn-primary' %>
+
 
 	<% end %>
 
