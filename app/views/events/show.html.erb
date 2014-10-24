@@ -1,19 +1,39 @@
-<h1><%= @event.title %></h1>
 
-<p><strong>People who are attending: </strong>
+<h1> <%= @event.title %></h1>
+		<ul>
+			<li>Event Description: <%= @event.description %></li>
+			<li>Event Time: <%= @event.whenz %></li>
+			<li>Event Location: <%= @event.location %></li>
+		</ul>
+
+
+<h2> Creator Of Event <h2>
+	<%= @event.users.first.name %><br>
+	<%= image_tag @event.users.first.avatar.url(:medium) %><br>
+	
+
+<h3> People Who Are Attending </h3>
 	<ul>
 		<% for attendee in @event.users %>
-		<% if attendee.id == current_user.id %>
-		<li><strong><%= attendee.name %></strong>
-			<%= link_to 'Withdraw From Event', withdraw_event_path(@event.id), :method => :post, :class => 'btn btn-danger' %>
-		</li>
-		<% else %>
-		<li><%= link_to attendee.name, user_path %></li>
-		<% end %>
-		<div class="row"><%= image_tag attendee.avatar.url(:medium) %></div>
-		<% end %>   
-	</ul>
-</p>
+		<% if attendee.id != @event.users.first.id %>
+			<li> <%= link_to attendee.name %> </li>
+			<% end %>
+		
+		</ul>
+
+<% end %>
+
+<h3> Join This Event <h3>
+<% if current_user.id != attendee.id %>
+	<
+
+	<% end %>
 
 
-<%= link_to 'Attend Event', attend_event_path(@event.id), :method => :post, :class => 'btn btn-primary' %> 
+
+
+
+
+
+
+
