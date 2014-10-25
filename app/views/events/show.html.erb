@@ -38,7 +38,6 @@
 	<% end %>
 
 
-
 		<% if current_user.id != attendee.id && current_user.id != @event.users.all[0].id %>
 			<%= link_to 'Request To Join Event', attend_event_path(@event.id), method: :post, class: 'btn btn-primary' %>
 			<% elsif current_user.id == attendee.id && current_user.id != @event.users.all[0].id   %>
