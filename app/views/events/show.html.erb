@@ -12,13 +12,13 @@
 			<h4>Creator Of Event</h4>
 		</div>
 	<div class="panel-body">
-			<p><%= image_tag @event.users.last.avatar.url(:medium) %></p><br>
-			<p><%= @event.users.last.name %></p>
+			<p><%= image_tag @event.users.first.avatar.url(:medium) %></p><br>
+			<p><%= @event.users.first.name %></p>
 	<div class="clearfix"></div>
 	<hr>
 		Heres where some quirky information about the user goes
 	</div>
-		<% if current_user.id == @event.users.last.id %>
+		<% if current_user.id == @event.users.first.id %>
 		<hr>
 		<center><%= link_to 'Delete Event', event_path(@event.id), :method => :delete, :class => 'btn btn-danger' %>
 		</center><% end %>
@@ -31,18 +31,19 @@
 <% for attendee in @event.users %>
 
 	<ul style="list-style: none;">	
-		<% if attendee.id != @event.users.last.id %>
-			<li> <%= image_tag attendee.avatar.url(:medium) %> </li> 
-		<% end %>
+		<% if attendee.id != @event.users.first.id %>
+			<li> <%= image_tag attendee.avatar.url(:medium) %> </li> 	
 	</ul>
-		<% if current_user.id == attendee.id && current_user.id != @event.users.last.id %>
-			<%= link_to 'withdraw from Event', withdraw_event_path(@event.id), method: :post, class: 'btn btn-danger' %>
-		<% end %>
-		<% if current_user.id != attendee.id && current_user.id != @event.users.last.id  %>
-		<%= link_to 'Request To Join Event', attend_event_path(@event.id), method: :post, class: 'btn btn-primary' %>
-		<% end %>
+	<% end %>
+	<% end %>
 
-<% end %>
+
+
+		<% if current_user.id != attendee.id %>
+			<%= link_to 'Request To Join Event', attend_event_path(@event.id), method: :post, class: 'btn btn-primary' %>
+			<% else %>
+			<%= link_to 'withdraw from Event', withdraw_event_path(@event.id), method: :post, class: 'btn btn-danger' %>
+	<% end %>
 
 
 			
