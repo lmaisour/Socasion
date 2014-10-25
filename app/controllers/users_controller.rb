@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
-    @events = Event.all
+    
   end
 
   def show

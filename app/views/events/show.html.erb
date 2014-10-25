@@ -26,16 +26,39 @@
 </div>
 
 
+<div class="creatorbox">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4>People Who Are Attending</h4>
+		</div>
+	<div class="panel-body">
+			<p><%= image_tag @event.users.all[0].avatar.url(:medium) %></p><br>
+			<p><%= @event.users.all[0].name %></p>
+	<div class="clearfix"></div>
+	<hr>
+		Heres where some quirky information about the user goes
+	</div>
+		<% if current_user.id == @event.users.all[0].id %>
+		<hr>
+		<center><%= link_to 'Delete Event', event_path(@event.id), :method => :delete, :class => 'btn btn-danger' %>
+		</center><% end %>
+	</div>
+</div>
+
 <h3> People Who Are Attending </h3>
 
 <% for attendee in @event.users %>
 
 	<ul style="list-style: none;">	
 		<% if attendee.id != @event.users.first.id %>
-			<li> <%= image_tag attendee.avatar.url(:medium) %> </li> 	
+			<li> <%= image_tag attendee.avatar.url(:medium) %> </li> 
+			<% if attendee.id != @current_user.id %>	
+			<li><%= link_to "Add Friend", friendships_path(:friend_id => attendee), :method => :post %></li>
+			<% end %>
+			<% end %>
+			<% end %>
 	</ul>
-	<% end %>
-	<% end %>
+
 
 
 		<% if current_user.id != attendee.id && current_user.id != @event.users.all[0].id %>

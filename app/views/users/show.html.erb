@@ -6,16 +6,15 @@
 <%= image_tag @user.avatar.url(:medium) %>
 <div class="row">
 	<div class="col-md-8">
-		<% if @user.events.any? %>
-		<h3>Created <%= @user.events.count %> event(s)</h3>
+
+
+		<h3>Took part in <%= @user.events.count %> event(s)</h3>
 		<ol class="events">
 			<%= render @events %>
 		</ol>
-		<%= will_paginate @events %>
-		<% end %>
+
 	</div>
 </div>
-
    <% unless current_user == @user %>
         <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
     <% end %>
