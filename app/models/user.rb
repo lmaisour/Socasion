@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many :attendees
-  has_many :events, through: :attendees, dependent: :destroy
+  has_many :events, through: :attendees
 
   has_many :friendships
   has_many :passive_friendships, :class_name => "Friendship", :foreign_key => "friend_id"

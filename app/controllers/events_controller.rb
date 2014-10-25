@@ -7,11 +7,10 @@ class EventsController < ApplicationController
 
   def index
   	@events = Event.all
-    @users = User.all
   end
 
   def show
-  	@event = Event.find(params[:id])
+     @event = Event.find(params[:id])
   end
 
   def create
@@ -28,7 +27,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     flash[:success] = "Event Deleted"
-    redirect_to request.referrer || root_url
+    redirect_to root_url
   end
 
   def attend

@@ -20,7 +20,7 @@
 	</div>
 		<% if current_user.id == @event.users.last.id %>
 		<hr>
-		<center><%= link_to 'Delete Event', withdraw_event_path(@event.id), :method => :post, :class => 'btn btn-danger' %>
+		<center><%= link_to 'Delete Event', event_path(@event.id), :method => :delete, :class => 'btn btn-danger' %>
 		</center><% end %>
 	</div>
 </div>
@@ -29,20 +29,26 @@
 	<h3> People Who Are Attending </h3>
 	<% for attendee in @event.users %>
 	<ul style="list-style: none;">	
-	<% if attendee.id != @event.users.first.id %>
-		<li> <%= link_to image_tag attendee.avatar.url(:medium) %> </li>
+	<% if attendee.id != @event.users.last.id %>
+		<li> <%= link_to image_tag attendee.avatar.url(:medium) %> </li> 
 		<% end %>
 		</ul>
 		<% end %>
 
-		<% if current_user.id != attendee.id %>
+		<% if current_user.id != attendee.id && current_user.id != @event.users.last.id %>
 			<h3> Join This Event <h3>
 			<%= link_to 'Request To Join Event', attend_event_path(@event.id), :method => :post, :class => 'btn btn-primary' %>
 			<% end %>
+
 		<% if current_user.id == attendee.id && current_user.id != @event.users.last.id %>
 			<%= link_to 'withdraw from Event', withdraw_event_path(@event.id), :method => :post, :class => 'btn btn-danger' %>
 			<% end %>
+	
+
 			
+
+
+   
 
 
 
