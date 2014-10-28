@@ -63,25 +63,30 @@
 	</div>
 </div>
 
-<div class="commentsbox">
-   <% for comment in @event.comments %>
-      <%= comment.user_id %> <%= comment.message %>
-      <hr />
-	<% end %>
-
-<h2>Comments:</h2>
-<%= form_for([@event, @event.comments.build]) do |f| %>
-  <p>
-    <%= f.label :add_a_comment %><br>
-    <%= f.text_field :message %>
-  </p>
-  	<%= f.hidden_field :user_id, :value => current_user.id %>
-  	<%= f.hidden_field :event_id, :value => @event.id %>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-</div>
+	<div class="commentsbox">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>Comments</h4>
+			</div>
+			<div class="panel-body">
+				<% for comment in @event.comments %>
+   				<%= comment.user_id %> <%= comment.message %>
+     		 <hr />
+				<% end %>
+				<div class="clearfix"></div>
+				<%= form_for([@event, @event.comments.build]) do |f| %>
+		  		<p>
+				    <%= f.text_field :message %>
+		 			</p>
+				  	<%= f.hidden_field :user_id, :value => current_user.id %>
+				  	<%= f.hidden_field :event_id, :value => @event.id %>
+		 		  <p>
+		    		<%= f.submit %>
+		  		</p>
+				<% end %>		
+			</div>
+		</div>
+	</div>
 
 
 
