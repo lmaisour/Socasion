@@ -28,8 +28,10 @@ Rails.application.routes.draw do
 
   resources :friendships
   resources :users
+  resources :comments
 
   resources :events do
+    resources :comments
     member do
       post :attend
       post :withdraw

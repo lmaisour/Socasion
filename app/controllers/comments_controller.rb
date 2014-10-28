@@ -4,13 +4,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = current_user.comments.create(comment_params)
-    if @comment.save
-      flash[:success] = "Comment created!"
-      redirect_to events_path
-    else
-      render new
-    end
+    @event = Event.find(params[:event_id])
+    @comment = @event.comments.create(comment_params)
+      if @comment.save
+        redirect_to @event
+      else
+        render new
+      end
   end
 
   def destroy
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:message,:attendee_ids => [])
+    params.require(:comment).permit(:message,:user_id, :event_id)
   end
 
 end
