@@ -36,7 +36,8 @@ users = User.all
 6.times do
   title = Faker::Lorem.sentence(word_count=4)
   description = Faker::Company.catch_phrase
-  whenz = Faker::Time.between(4.weeks.ago, Time.now, :all)
+  start_time = Faker::Time.between(4.weeks.ago, Time.now, :all)
+  end_time = Faker::Time.between(4.weeks.ago, Time.now, :all)
   location = Faker::Address.street_address	
   users.each do |x|
   	x.events.create!(title: title, 

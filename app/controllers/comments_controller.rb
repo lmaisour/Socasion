@@ -6,6 +6,14 @@ class CommentsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @comment = @event.comments.create(comment_params)
+       # respond_to do |format|
+       #    if @comment.save
+       #      format.html { redirect_to @event, notice: 'comment was successfully created.' }
+       #      format.js   {}
+       #      format.json { render json: @event, status: :created, location: @event }
+       #    else
+       #      format.html { render action: "new" }
+       #      format.json { render json: @event.errors, status: :unprocessable_entity }
       if @comment.save
         redirect_to @event
       else

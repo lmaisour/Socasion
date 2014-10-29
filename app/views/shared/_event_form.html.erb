@@ -3,7 +3,8 @@
   <div class="field">
     <%= f.text_area :title, placeholder: "Title of event" %>
     <%= f.text_area :description, placeholder: "more info" %>
-    <%= f.datetime_select :whenz, placeholder: "time" %>
+    <%= f.datetime_select :start_time, placeholder: "time" %>
+     <%= f.datetime_select :end_time, placeholder: "time" %>
     <%= f.text_area :location, placeholder: "where" %>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>

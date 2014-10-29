@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   has_many :attendees
   has_many :events, through: :attendees
 
+  has_many :comments
+
+
   has_many :friendships
   has_many :passive_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
 
