@@ -42,7 +42,8 @@ users = User.all
   users.each do |x|
   	x.events.create!(title: title, 
   					 description: description,
-  					 whenz: whenz,
+  					 start_time: start_time,
+             end_time: end_time,
   					 location: location
   					)
   end
