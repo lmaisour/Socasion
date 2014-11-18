@@ -73,6 +73,9 @@ GEM
       multipart-post (>= 1.2, < 3)
     hashie (3.3.1)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.2.1)
       activesupport (>= 3.0.0, < 5)
@@ -82,7 +85,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
-    lunchy (0.8.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -198,9 +200,9 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   factory_girl_rails (= 4.2.0)
   faker (= 1.4.2)
+  httparty (~> 0.13.1)
   jbuilder (~> 2.0)
   jquery-rails
-  lunchy (~> 0.8.0)
   omniauth
   omniauth-facebook
   paperclip (~> 4.2)

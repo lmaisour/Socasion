@@ -13,7 +13,8 @@ gem 'omniauth'
 gem 'bootstrap-sass', '~> 3.2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
-
+# Use to call APIs
+gem 'httparty', '~> 0.13.1'
 # Use to authenticate facebook users
 gem 'omniauth-facebook'
 # Use to paginate results for users & events
@@ -21,8 +22,6 @@ gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 # Use to create fake users
 gem 'faker', '1.4.2'
-# Use to stop and start rails server
-gem 'lunchy', '~> 0.8.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views

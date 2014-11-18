@@ -44,16 +44,16 @@
 			<% for attendee in @event.users %>
 				<% if attendee.id != @event.users.all[0].id %>
 				<%= image_tag attendee.avatar.url(:medium) %>
-				<% end %>
-			
-				<% if attendee.id != @current_user.id && attendee.id != @current_user.friends  %>	
+
+				<% if attendee.id != @user.id && attendee.id != @user.friends  %>	
 					<li><%= link_to "Add Friend", friendships_path(:friend_id => attendee), :method => :post %></li>
 				<% end %>
 				<% end %>
+				<% end %>
 
-				<% if current_user.id == attendee.id && current_user.id != @event.users.all[0].id %>
+				<% if @user.id == attendee.id && @user.id != @event.users.all[0].id %>
 				<%= link_to 'withdraw from Event', withdraw_event_path(@event.id), method: :post, class: 'btn btn-danger' %>
-				<% elsif current_user.id != attendee.id && current_user.id != @event.users.all[0].id %>
+				<% elsif @user.id != attendee.id && @user.id != @event.users.all[0].id %>
 				<%= link_to 'Request To Join Event', attend_event_path(@event.id), method: :post, class: 'btn btn-primary' %>
 				<% end %>
 			
